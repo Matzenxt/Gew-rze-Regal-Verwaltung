@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gewürze Regal Verwaltung", "Gewürze Regal Verwaltung\Gewürze Regal Verwaltung.csproj", "{621D45EA-8C48-4C67-9B76-6A64D1DEE479}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{621D45EA-8C48-4C67-9B76-6A64D1DEE479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{621D45EA-8C48-4C67-9B76-6A64D1DEE479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{621D45EA-8C48-4C67-9B76-6A64D1DEE479}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{621D45EA-8C48-4C67-9B76-6A64D1DEE479}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61BBF70F-6AAE-480A-B3A9-F5881B9B82D4}
+	EndGlobalSection
+EndGlobal
