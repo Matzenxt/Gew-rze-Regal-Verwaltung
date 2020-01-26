@@ -98,9 +98,38 @@ namespace Gewürze_Regal_Verwaltung.Common
         {
             int spaceNeeded = 0;
 
-
+            foreach(Produkt produkt in produktOverFlow)
+            {
+                spaceNeeded += produkt.GetVerpackung().getWitdh();
+            }
 
             return spaceNeeded;
+        }
+
+        public int clacBödenNeeded()
+        {
+            int currentWidth = 0;
+            int anzahlBöden = 0;
+
+            if(produktOverFlow.Count > 0)
+            {
+                anzahlBöden = 1;
+            }
+
+            foreach(Produkt produkt in produktOverFlow)
+            {
+                if(currentWidth + produkt.GetVerpackung().getWitdh() < witdh)
+                {
+                    currentWidth = currentWidth + produkt.GetVerpackung().getWitdh();
+                }
+                else
+                {
+                    anzahlBöden++;
+                    currentWidth = produkt.GetVerpackung().getWitdh();
+                }
+            }
+
+            return anzahlBöden;
         }
 
         public List<Produkt> getProduktOverFlow()

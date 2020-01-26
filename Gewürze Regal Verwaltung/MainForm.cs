@@ -64,7 +64,8 @@ namespace Gewürze_Regal_Verwaltung
                 btnShowData.Enabled = true;
                 labelAnzahlProdukte.Text = regal.getProdukte().Count.ToString();
                 labelProduktOverFlowCount.Text = regal.getProduktOverFlow().Count.ToString();
-
+                labelBenötigteFläche.Text = regal.calcSpaceNeeded().ToString();
+                labelBenötigteBöden.Text = regal.clacBödenNeeded().ToString();
 
                 lvProduktOverFlow.Clear();
                 foreach(Produkt produkt in regal.getProduktOverFlow())
@@ -72,7 +73,6 @@ namespace Gewürze_Regal_Verwaltung
                     lvProduktOverFlow.Items.Add(produkt.getName() + " - " + produkt.GetVerpackung().getBezeichnung());
                 }
 
-                int currentRow = 0;
                 flowLayoutPanel1.Controls.Clear();
                 foreach(List<Produkt> row in regal.getProduktsPerRow())
                 {
@@ -87,7 +87,6 @@ namespace Gewürze_Regal_Verwaltung
                         lv.Items.Add(produkt.getName() + " - " + produkt.GetVerpackung().getBezeichnung());
                     }
                 }
-
             }
         }
 
