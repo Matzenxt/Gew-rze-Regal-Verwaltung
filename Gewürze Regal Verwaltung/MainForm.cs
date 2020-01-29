@@ -73,19 +73,41 @@ namespace Gewürze_Regal_Verwaltung
                     lvProduktOverFlow.Items.Add(produkt.getName() + " - " + produkt.GetVerpackung().getBezeichnung());
                 }
 
+                int bodenCounter = 1;
                 flowLayoutPanel1.Controls.Clear();
                 foreach(List<Produkt> row in regal.getProduktsPerRow())
                 {
+                    GroupBox gb = new GroupBox();
+                    gb.Text = bodenCounter.ToString() + ". Boden";
+                    gb.Width = 256;
+                    gb.Height = flowLayoutPanel1.Height - 15;
+
                     ListView lv = new ListView();
-                    lv.View = View.List;
-                    lv.Width = 200;
-                    lv.Height = flowLayoutPanel1.Height - 15;
-                    flowLayoutPanel1.Controls.Add(lv);
+                    lv.View = View.Details;
+                    lv.Dock = DockStyle.Fill;
+
+                    ColumnHeader header = new ColumnHeader();
+                    header.Text = "Produkt";
+                    header.Name = "ProduktName";
+                    lv.Columns.Add(header);
+
+                    ColumnHeader header2 = new ColumnHeader();
+                    header2.Text = "Gewicht";
+                    header2.Name = "ProduktGewicht";
+                    lv.Columns.Add(header2);
+
+                    gb.Controls.Add(lv);
+                    flowLayoutPanel1.Controls.Add(gb);
 
                     foreach(Produkt produkt in row)
                     {
-                        lv.Items.Add(produkt.getName() + " - " + produkt.GetVerpackung().getBezeichnung());
+                        ListViewItem listViewItemName = new ListViewItem(produkt.GetVerpackung().getBezeichnung(), 0);
+                        listViewItemName.SubItems.Add(produkt.getName());
+
+                        lv.Items.AddRange(new ListViewItem[] { listViewItemName });
                     }
+
+                    bodenCounter++;
                 }
             }
         }

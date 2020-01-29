@@ -46,6 +46,7 @@
             this.labelAnzahlProdukte = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnSelectFile = new System.Windows.Forms.Button();
             this.btnProcessData = new System.Windows.Forms.Button();
@@ -58,7 +59,6 @@
             this.tbBodenBreite = new System.Windows.Forms.TextBox();
             this.tbRegalName = new System.Windows.Forms.TextBox();
             this.tabControlRoot = new System.Windows.Forms.TabControl();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPageProdukte.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -100,8 +100,8 @@
             // 
             // lvProduktOverFlow
             // 
-            this.lvProduktOverFlow.HideSelection = false;
             resources.ApplyResources(this.lvProduktOverFlow, "lvProduktOverFlow");
+            this.lvProduktOverFlow.HideSelection = false;
             this.lvProduktOverFlow.Name = "lvProduktOverFlow";
             this.lvProduktOverFlow.UseCompatibleStateImageBehavior = false;
             this.lvProduktOverFlow.View = System.Windows.Forms.View.List;
@@ -178,6 +178,11 @@
             resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
+            // 
+            // flowLayoutPanel1
+            // 
+            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             // 
             // groupBox2
             // 
@@ -261,11 +266,6 @@
             resources.ApplyResources(this.tabControlRoot, "tabControlRoot");
             this.tabControlRoot.Name = "tabControlRoot";
             this.tabControlRoot.SelectedIndex = 0;
-            // 
-            // flowLayoutPanel1
-            // 
-            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             // 
             // MainForm
             // 
