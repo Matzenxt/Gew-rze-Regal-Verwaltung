@@ -60,7 +60,7 @@ namespace Gewürze_Regal_Verwaltung
                 regal.readFromExcelFile(filePath);
                 regal.fillRegal();
 
-                // Update UI Elemente
+                // Update UI elements
                 btnShowData.Enabled = true;
                 labelAnzahlProdukte.Text = regal.getProdukte().Count.ToString();
                 labelProduktOverFlowCount.Text = regal.getProduktOverFlow().Count.ToString();
@@ -77,37 +77,40 @@ namespace Gewürze_Regal_Verwaltung
                 flowLayoutPanel1.Controls.Clear();
                 foreach(List<Produkt> row in regal.getProduktsPerRow())
                 {
-                    GroupBox gb = new GroupBox();
-                    gb.Text = bodenCounter.ToString() + ". Boden";
-                    gb.Width = 256;
-                    gb.Height = flowLayoutPanel1.Height - 15;
-
-                    ListView lv = new ListView();
-                    lv.View = View.Details;
-                    lv.Dock = DockStyle.Fill;
-
-                    ColumnHeader header = new ColumnHeader();
-                    header.Text = "Produkt";
-                    header.Name = "ProduktName";
-                    lv.Columns.Add(header);
-
-                    ColumnHeader header2 = new ColumnHeader();
-                    header2.Text = "Gewicht";
-                    header2.Name = "ProduktGewicht";
-                    lv.Columns.Add(header2);
-
-                    gb.Controls.Add(lv);
-                    flowLayoutPanel1.Controls.Add(gb);
-
-                    foreach(Produkt produkt in row)
+                    if (row.Count > 0)
                     {
-                        ListViewItem listViewItemName = new ListViewItem(produkt.GetVerpackung().getBezeichnung(), 0);
-                        listViewItemName.SubItems.Add(produkt.getName());
+                        GroupBox gb = new GroupBox();
+                        gb.Text = bodenCounter.ToString() + ". Boden";
+                        gb.Width = 256;
+                        gb.Height = flowLayoutPanel1.Height - 15;
 
-                        lv.Items.AddRange(new ListViewItem[] { listViewItemName });
+                        ListView lv = new ListView();
+                        lv.View = View.Details;
+                        lv.Dock = DockStyle.Fill;
+
+                        ColumnHeader header = new ColumnHeader();
+                        header.Text = "Produkt";
+                        header.Name = "ProduktName";
+                        lv.Columns.Add(header);
+
+                        ColumnHeader header2 = new ColumnHeader();
+                        header2.Text = "Gewicht";
+                        header2.Name = "ProduktGewicht";
+                        lv.Columns.Add(header2);
+
+                        gb.Controls.Add(lv);
+                        flowLayoutPanel1.Controls.Add(gb);
+
+                        foreach (Produkt produkt in row)
+                        {
+                            ListViewItem listViewItemName = new ListViewItem(produkt.GetVerpackung().getBezeichnung(), 0);
+                            listViewItemName.SubItems.Add(produkt.getName());
+
+                            lv.Items.AddRange(new ListViewItem[] { listViewItemName });
+                        }
+
+                        bodenCounter++;
                     }
-
-                    bodenCounter++;
                 }
             }
         }
